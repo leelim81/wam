@@ -1,7 +1,7 @@
 // SPDX-License-Identifier: MIT
 pragma solidity ^0.8.9;
 
-import "openzeppelin-contracts/contracts/utils/math/SafeMath.sol";
+//import "openzeppelin-contracts/contracts/utils/math/SafeMath.sol";
 
 import "./protocols/uniswap/UniswapV2Library.sol";
 import "./protocols/uniswap/IQuoterV2.sol";
@@ -9,7 +9,7 @@ import "./protocols/curve/ICurvePool.sol";
 
 // Deployment gas: 773,502
 contract SimulatorV1 {
-    using SafeMath for uint256;
+//    using SafeMath for uint256;
 
     struct SwapParams {
         uint8 protocol; // 0 (UniswapV2), 1 (UniswapV3), 2 (Curve Finance)

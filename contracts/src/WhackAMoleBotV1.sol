@@ -1,7 +1,7 @@
 // SPDX-License-Identifier: MIT
 pragma solidity ^0.8.9;
 
-import "openzeppelin-contracts/contracts/utils/math/SafeMath.sol";
+//import "openzeppelin-contracts/contracts/utils/math/SafeMath.sol";
 import "openzeppelin-contracts/contracts/token/erc20/IERC20.sol";
 import "openzeppelin-contracts/contracts/token/erc20/utils/SafeERC20.sol";
 
@@ -73,7 +73,7 @@ contract WhackAMoleBotV1 {
             IERC20 token = IERC20(tokens[i]);
             for (uint j; j < protocolsLength; ) {
                 address protocol = protocols[j];
-                token.safeApprove(protocol, maxInt);
+                token.approve(protocol, maxInt);
 
                 unchecked {
                     ++j;

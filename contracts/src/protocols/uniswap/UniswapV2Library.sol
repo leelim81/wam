@@ -3,10 +3,10 @@ pragma solidity ^0.8.9;
 
 import "./IUniswapV2Pair.sol";
 
-import "openzeppelin-contracts/contracts/utils/math/SafeMath.sol";
+//import "openzeppelin-contracts/contracts/utils/math/SafeMath.sol";
 
 library UniswapV2Library {
-    using SafeMath for uint256;
+//    using SafeMath for uint256;
 
     // returns sorted token addresses, used to handle return values from pairs sorted in this order
     function sortTokens(address tokenA, address tokenB)
@@ -80,9 +80,9 @@ library UniswapV2Library {
             reserveIn > 0 && reserveOut > 0,
             "UniswapV2Library: INSUFFICIENT_LIQUIDITY"
         );
-        uint256 amountInWithFee = amountIn.mul(997);
-        uint256 numerator = amountInWithFee.mul(reserveOut);
-        uint256 denominator = reserveIn.mul(1000).add(amountInWithFee);
+        uint256 amountInWithFee = amountIn * 997;
+        uint256 numerator = amountInWithFee * reserveOut;
+        uint256 denominator = reserveIn * 1000 + amountInWithFee;
         amountOut = numerator / denominator;
     }
 
@@ -97,9 +97,9 @@ library UniswapV2Library {
             reserveIn > 0 && reserveOut > 0,
             "UniswapV2Library: INSUFFICIENT_LIQUIDITY"
         );
-        uint256 numerator = reserveIn.mul(amountOut).mul(1000);
-        uint256 denominator = reserveOut.sub(amountOut).mul(997);
-        amountIn = (numerator / denominator).add(1);
+        uint256 numerator = reserveIn * amountOut * 1000;
+        uint256 denominator = reserveOut - amountOut * 997;
+        amountIn = (numerator / denominator) + 1;
     }
 
     // performs chained getAmountOut calculations on any number of pairs
