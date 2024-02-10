@@ -15,13 +15,14 @@ class Telegram:
                  token: str = TELEGRAM_TOKEN,
                  chat_id: str or int = TELEGRAM_CHAT_ID):
 
-        self.token = token
-        self.chat_id = int(chat_id)
+        # self.token = token
+        # self.chat_id = int(chat_id)
 
-        if token:
-            self.bot = Bot(token=self.token)
-        else:
-            self.bot = None
+        self.bot = None
+        # if token:
+        #     self.bot = Bot(token=self.token)
+        # else:
+        #     self.bot = None
 
     def get_updates(self):
         """
