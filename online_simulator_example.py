@@ -154,6 +154,7 @@ class OnlineSimulator:
         return self.sim[chain].functions.simulateSwapIn(params).call()
 
 
+
 if __name__ == '__main__':
     import os
     from dotenv import load_dotenv
@@ -166,6 +167,12 @@ if __name__ == '__main__':
     ETHEREUM_SIMULATOR_ADDRESS = os.getenv('ETHEREUM_SIMULATOR_ADDRESS')
 
     chain = 'ethereum'
+"""
+Constructs the sell parameters for simulating a swap.
+
+Reverses the token path and constructs the parameter dictionary 
+for each pool based on the chain, exchange, tokens, and fees.
+"""
 
     rpc_endpoints = {chain: RPC_ENDPOINTS[chain]}
     tokens = {chain: TOKENS}
